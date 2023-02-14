@@ -63,7 +63,7 @@ fi
 echo $BINURL | wget --no-verbose -i- -O- | gzip -d -c > ${CLDBIN}
 chmod 0755 ${CLDBIN}
 
-wget -O /etc/systemd/system/cloud-torrent.service https://raw.githubusercontent.com/boypt/simple-torrent/master/scripts/cloud-torrent.service
+wget -O /etc/systemd/system/cloud-torrent.service https://raw.githubusercontent.com/FarrukhFaraz/simple-torrent/master/scripts/cloud-torrent.service
 
 if [[ x${NEEDAUTH^^} == x"Y" ]]; then
     sed -i "s/user:ctorrent/${USERNAME}:${PASSWORD}/" /etc/systemd/system/cloud-torrent.service 
@@ -86,7 +86,7 @@ Open browser to http://${HOSTIP}:3000/ now!
 * Default Password: ${PASSWORD}
 
 Read the wiki page about changing the default settings.
-    https://github.com/boypt/simple-torrent/wiki/AuthSecurity
+    https://github.com/FarrukhFaraz/simple-torrent/wiki/AuthSecurity
 
 #################################################################
 EOF
