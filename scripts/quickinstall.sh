@@ -60,8 +60,8 @@ if [[ -z $BINURL ]]; then
     exit 1
 fi
 
-# echo $BINURL | wget --no-verbose -i- -O- | gzip -d -c > ${CLDBIN}
-# chmod 0755 ${CLDBIN}
+echo $BINURL | wget --no-verbose -i- -O- | gzip -d -c > ${CLDBIN}
+chmod 0755 ${CLDBIN}
 
 wget -O /etc/systemd/system/cloud-torrent.service https://raw.githubusercontent.com/FarrukhFaraz/simple-torrent/master/scripts/cloud-torrent.service
 
