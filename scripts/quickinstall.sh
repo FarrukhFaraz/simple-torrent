@@ -16,7 +16,7 @@ if [[ $(id -u) -ne 0 ]]; then
 fi
 
 GHAPI=https://api.github.com/repos/FarrukhFaraz/simple-torrent/releases/latest
-VERSION=${1:-1.3.9}
+VERSION=1.3.9
 if [[ "$VERSION" != "latest" ]]; then
     GHAPI=https://api.github.com/repos/FarrukhFaraz/simple-torrent/releases/tags/${VERSION}
     echo "The script is trying to install version ${VERSION}"
