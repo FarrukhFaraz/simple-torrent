@@ -15,12 +15,12 @@ if [[ $(id -u) -ne 0 ]]; then
     exit 1
 fi
 
-GHAPI=https://api.github.com/repos/FarrukhFaraz/simple-torrent/releases/tags/1.3.3
-# VERSION=${1:-latest}
-# if [[ "$VERSION" != "latest" ]]; then
-#     GHAPI=https://api.github.com/repos/FarrukhFaraz/simple-torrent/releases/tags/${VERSION}
-#     echo "The script is trying to install version ${VERSION}"
-# fi
+GHAPI=https://api.github.com/repos/boypt/simple-torrent/releases/latest 
+VERSION=${1:-latest}
+if [[ "$VERSION" != "latest" ]]; then
+    GHAPI=https://api.github.com/repos/boypt/simple-torrent/releases/tags/${VERSION}
+    echo "The script is trying to install version ${VERSION}"
+fi
 
 HOSTIP=$(ip -o route get to 8.8.8.8 | sed -n 's/.*src \([0-9.]\+\).*/\1/p')
 CLDBIN=/usr/local/bin/cloud-torrent
