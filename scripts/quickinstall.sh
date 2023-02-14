@@ -15,12 +15,12 @@ if [[ $(id -u) -ne 0 ]]; then
     exit 1
 fi
 
-# GHAPI=https://api.github.com/repos/boypt/simple-torrent/releases/latest 
-# VERSION=${1:-latest}
-# if [[ "$VERSION" != "latest" ]]; then
-#     GHAPI=https://api.github.com/repos/boypt/simple-torrent/releases/tags/${VERSION}
-#     echo "The script is trying to install version ${VERSION}"
-# fi
+GHAPI=https://api.github.com/repos/FarrukhFaraz/simple-torrent/releases/latest 
+VERSION=${1:-latest}
+if [[ "$VERSION" != "latest" ]]; then
+    GHAPI=https://api.github.com/repos/FarrukhFaraz/simple-torrent/releases/tags/${VERSION}
+    echo "The script is trying to install version ${VERSION}"
+fi
 
 HOSTIP=$(ip -o route get to 8.8.8.8 | sed -n 's/.*src \([0-9.]\+\).*/\1/p')
 CLDBIN=/usr/local/bin/cloud-torrent
@@ -53,12 +53,12 @@ if [[ x${NEEDAUTH^^} == x"Y" ]]; then
 fi
 
 systemctl stop cloud-torrent || true
-# BINURL=$(wget -qO- $GHAPI | grep browser_download_url | grep "$BINTAG" | grep static | cut -d '"' -f 4 || true)
-# if [[ -z $BINURL ]]; then
-#     echo "It's seems that  is not a valid version, check release page:"
-#     echo "https://github.com/FarrukhFaraz/simple-torrent/releases"
-#     exit 1
-# fi
+BINURL=$(wget -qO- $GHAPI | grep browser_download_url | grep "$BINTAG" | grep static | cut -d '"' -f 4 || true)
+if [[ -z $BINURL ]]; then
+    echo "It's seems that $VERSION is not a valid version, check release page:"
+    echo "https://github.com/FarrukhFaraz/simple-torrent/releases"
+    exit 1
+fi
 
 # echo $BINURL | wget --no-verbose -i- -O- | gzip -d -c > ${CLDBIN}
 # chmod 0755 ${CLDBIN}
