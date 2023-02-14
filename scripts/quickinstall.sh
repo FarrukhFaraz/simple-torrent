@@ -15,7 +15,7 @@ if [[ $(id -u) -ne 0 ]]; then
     exit 1
 fi
 
-GHAPI=https://api.github.com/repos/FarrukhFaraz/simple-torrent/releases/latest/tags/1.3.3
+GHAPI=https://api.github.com/repos/FarrukhFaraz/simple-torrent/releases/tags/1.3.3
 # VERSION=${1:-latest}
 # if [[ "$VERSION" != "latest" ]]; then
 #     GHAPI=https://api.github.com/repos/FarrukhFaraz/simple-torrent/releases/tags/${VERSION}
