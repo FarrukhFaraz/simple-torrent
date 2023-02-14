@@ -6,7 +6,7 @@
 
 This project is a re-branded fork of [cloud-torrent](https://github.com/jpillora/cloud-torrent) by `jpillora`.
 
-# Features
+# Features.
 
 * Individual file download control (1.1.3+)
 * Run external program on tasks completion: `DoneCmd`
